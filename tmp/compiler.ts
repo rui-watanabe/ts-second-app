@@ -1,1 +1,2 @@
-console.log('compiled');
+let hello = 'hello';
+console.log(hello.toUpperCase());
