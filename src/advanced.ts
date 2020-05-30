@@ -188,3 +188,11 @@ function addvancedFn(...args: readonly [number, string, boolean?, ...number[]]){
 }
 // addvancedFn(0, 3, 3, 5, 6)
 addvancedFn(0, 'hi', true, 3, 3, 3, 3)
+
+// changed add readonly and constant 
+let milk = 'milk' as const;
+const array = [2, 6] as const;
+const object = {
+  name: 'Peter',
+  age: 44
+} as const;
