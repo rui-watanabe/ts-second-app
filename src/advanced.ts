@@ -120,3 +120,5 @@ const downloadedData: DownloadedData = {
 }
 // allow undefined
 console.log(downloadedData.user?.name?.first)
+// null or undefined (?? can't use '' or 0 = ||)
+const userData = downloadedData.user ?? 'no-user';
