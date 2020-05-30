@@ -2,6 +2,9 @@
 interface Human {
   name: string;
   age: number;
+  // greeting: (message: string) => void;
+  // only use method
+  greeting(message: string): void;
 }
 
 // type is can use all
@@ -12,7 +15,10 @@ interface Human {
 
 const human: Human = {
   name: 'Max',
-  age: 44
+  age: 44,
+  greeting(message: string){
+    console.log(message);
+  }
 }
 
-let developer: Human;
+let tmpFunction: (message: string) => void;
