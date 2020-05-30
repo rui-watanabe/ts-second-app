@@ -192,7 +192,9 @@ addvancedFn(0, 'hi', true, 3, 3, 3, 3)
 // changed add readonly and constant 
 let milk = 'milk' as const;
 const array = [2, 6] as const;
-const object = {
+const peter = {
   name: 'Peter',
   age: 44
 } as const;
+
+type PeterType = typeof peter;
