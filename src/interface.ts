@@ -17,9 +17,20 @@ class Developer implements Human {
   constructor(public name: string, public age: number, public experience: number){};
 
   greeting(message: string){
-    console.log('hello');
+    console.log(message);
   }
 }
+
+const tmpDeveloper = {
+  name: 'Max',
+  age: 38,
+  experience: 5,
+  greeting(message: string){
+    console.log(message);
+  }
+}
+
+const user: Human = tmpDeveloper;
 
 // const human: Human = {
 //   name: 'Max',
