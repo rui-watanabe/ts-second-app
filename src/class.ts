@@ -1,4 +1,8 @@
 class Person {
+  static species = 'Homo sapiens';
+  static isAdult(age: number) {
+    return age > 17 ? true : false;
+  };
 
   readonly id:number = 32;
   constructor(readonly name: string, protected age: number) {
@@ -45,10 +49,15 @@ class Teacher extends Person {
   }
 }
 
-const teacher = new Teacher('reo', 34, 'Math');
-teacher.subject = 'Music';
-console.log(teacher.subject);
-teacher.greeting();
+console.log(Person.species);
+console.log(Person.isAdult(37));
+console.log(Teacher.species);
+console.log(Teacher.isAdult(37));
+
+// const teacher = new Teacher('reo', 34, 'Math');
+// teacher.subject = 'Music';
+// console.log(teacher.subject);
+// teacher.greeting();
 
 // let Person2: Person;
 // const max = new Person('Max', 32);
