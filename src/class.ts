@@ -1,5 +1,10 @@
 class Person {
-  constructor(public name: string, private age: number) {};
+
+  readonly id:number = 32;
+  constructor(readonly name: string, protected age: number) {
+    // this.id = 33;
+    // this.name = 'hah';
+  };
 
   incrementAge() {
     this.age += 1;
@@ -16,10 +21,23 @@ class Person {
 
 }
 
-let Person2: Person;
-const max = new Person('Max', 32);
-max.incrementAge();
-max.greeting();
+class Teacher extends Person {
+  constructor(name: string, age: number, public subject: string ){
+    super(name, age);
+  };
+
+  greeting(){
+    console.log(`Hello, My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}`)
+  }
+}
+
+const teacher = new Teacher('reo', 34, 'Math');
+teacher.greeting();
+
+// let Person2: Person;
+// const max = new Person('Max', 32);
+// max.incrementAge();
+// max.greeting();
 
 // const anotherMax = {
 //   name: 'anotherMax',
