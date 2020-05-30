@@ -181,3 +181,10 @@ class AdvancedCar {
 let target = new AdvancedPerson;
 let source = new AdvancedCar;
 target = source;
+
+// function addvancedFn(...args: number[]){
+function addvancedFn(...args: [number, string, boolean?, ...number[]]){
+  args[0]
+}
+// addvancedFn(0, 3, 3, 5, 6)
+addvancedFn(0, 'hi', true, 3, 3, 3, 3)
