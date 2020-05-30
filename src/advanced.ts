@@ -123,3 +123,32 @@ console.log(downloadedData.user?.name?.first)
 // null or undefined (?? can't use '' or 0 = ||)
 const userData = downloadedData.user ?? 'no-user';
 type id = DownloadedData['id' | "user"];
+
+// enum type can put in number
+enum Color {
+  RED,
+  BLUE
+}
+
+// let target = Color.RED;
+// let source = 0;
+
+// let target = function(a: string, b: string) {};
+// let source = function(a: string) {};
+// target = source;
+// target('hi', 'hello');
+
+class AdvancedPerson {
+  name: string = 'Petter';
+  // private age: number = 23; //can't use private
+  age: number = 23;
+}
+
+class AdvancedCar {
+  name: string = 'Prius';
+  age: number = 5;
+}
+
+let target = new AdvancedPerson;
+let source = new AdvancedCar;
+target = source;
