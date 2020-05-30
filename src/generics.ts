@@ -1,6 +1,8 @@
-function copy<T extends { name: string }>(value: T): T {
-  value.name;
+function copy<T extends { name: string }, U extends keyof T>(value: T, key: U): T {
+  value[key];
   return value;
 }
 // console.log(copy<string>('hello'));
-console.log(copy({ name: 'Max' }).name);
+console.log(copy({ name: 'Max' , age: 38}, 'age'));
+
+type K = keyof { name: string, age: number }
