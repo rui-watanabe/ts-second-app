@@ -1,4 +1,4 @@
-class Person {
+abstract class Person {
   static species = 'Homo sapiens';
   static isAdult(age: number) {
     return age > 17 ? true : false;
@@ -15,8 +15,12 @@ class Person {
   }
 
   greeting(this: Person){
-    console.log(`Hello, My name is ${this.name}. I am ${this.age} years old.`)
+    console.log(`Hello, My name is ${this.name}. I am ${this.age} years old.`);
+    this.explainJob();
   }
+
+  // abstract class can't instance conversion
+  abstract explainJob(): void;
 
   // arrow function is can only be used at definition
   // greeting = () => {
@@ -26,6 +30,10 @@ class Person {
 }
 
 class Teacher extends Person {
+  explainJob(){
+    console.log(`I am a teacher and teach ${this.subject}`)
+  }
+
   get subject(): string {
     if(!this._subject) {
       throw new Error('There is no Subject.')
@@ -40,19 +48,18 @@ class Teacher extends Person {
     this._subject = value;
   }
 
-  constructor(name: string, age: number, private _subject: string ){
+  private constructor(name: string, age: number, private _subject: string ){
     super(name, age);
   };
-
-  greeting(){
-    console.log(`Hello, My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}`)
-  }
 }
 
-console.log(Person.species);
-console.log(Person.isAdult(37));
-console.log(Teacher.species);
-console.log(Teacher.isAdult(37));
+// const teacher = new Teacher('reo', 34, 'Math');
+// teacher.greeting();
+
+// console.log(Person.species);
+// console.log(Person.isAdult(37));
+// console.log(Teacher.species);
+// console.log(Teacher.isAdult(37));
 
 // const teacher = new Teacher('reo', 34, 'Math');
 // teacher.subject = 'Music';
