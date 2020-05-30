@@ -5,18 +5,26 @@ class Person {
     this.name = initName;
   }
 
-  greeting(this: { name: string }){
+  greeting(this: Person){
     console.log(`Hello, My name is ${this.name}`)
   }
 
+  // arrow function is can only be used at definition
+  // greeting = () => {
+  //   console.log(`Hello, My name is ${this.name}`)
+  // }
+
 }
 
+let Person2: Person;
 const max = new Person('Max');
 max.greeting();
 
 const anotherMax = {
   name: 'anotherMax',
-  anotherGreeting: max.greeting
+  // greeting(){},
+  // anotherGreeting: max.greeting
+  greeting: max.greeting
 }
 
-anotherMax.anotherGreeting();
+anotherMax.greeting();
