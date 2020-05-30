@@ -1,6 +1,9 @@
+interface nameAble {
+  name: string;
+}
+
 // interface is only use object
-interface Human {
-  readonly name: string;
+interface Human extends nameAble {
   age: number;
   // greeting: (message: string) => void;
   // only use method
