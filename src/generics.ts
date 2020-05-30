@@ -55,3 +55,10 @@ type ReadTodo = Readonly<Todo>
 const vegetables1: string[] = ['Tomato', 'Broccoli', 'Asparagus'];
 const vegetables2: Array<string> = ['Tomato', 'Broccoli', 'Asparagus'];
 
+interface ResponseData<T extends { message: string } = any> {
+  data: T;
+  status: number;
+}
+
+let tmp: ResponseData;
+
