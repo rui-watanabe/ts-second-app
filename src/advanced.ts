@@ -47,6 +47,16 @@ interface TmpFunc {
 // in case of overload, it must be type that supports all
 const upperHello: TmpFunc = function (x: string | number) { return 0 };
 
+interface FuncA {
+  (a: number, b: string): number;
+  (a: string, b: number): number;
+}
+interface FuncB {
+  (a: number): number;
+}
+let intersectionFunc: FuncA & FuncB;
+intersectionFunc = function (a: number | string, b?: string | number) { return 0};
+
 // const upperHello: TmpFunc = toUpperCase;
 // upperHello('hi');
 // upperHello(32);
