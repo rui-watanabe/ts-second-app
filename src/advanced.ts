@@ -32,12 +32,16 @@ type NumberOrBoolean = number | boolean;
 type StringOrNumber = string | number;
 type Mix = NumberOrBoolean & StringOrNumber;
 
+function toUpperCase(x: string): string;
+function toUpperCase(x: number): number;
 function toUpperCase(x: string | number) {
   if(typeof x === 'string'){
     return x.toUpperCase();
   }
-  return '';
+  return x;
 }
+const upperHello = toUpperCase('hello');
+
 
 type NomadWorker = Enginner | Blogger;
 function describeProfile(nomadWorker: NomadWorker) {
