@@ -40,7 +40,16 @@ function toUpperCase(x: string | number) {
   }
   return x;
 }
-const upperHello = toUpperCase('hello');
+interface TmpFunc {
+  (x: string): number;
+  (x: number): number;
+}
+// in case of overload, it must be type that supports all
+const upperHello: TmpFunc = function (x: string | number) { return 0 };
+
+// const upperHello: TmpFunc = toUpperCase;
+// upperHello('hi');
+// upperHello(32);
 
 
 type NomadWorker = Enginner | Blogger;
