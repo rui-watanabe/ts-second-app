@@ -13,12 +13,20 @@ interface Human {
 //   age: number;
 // } | string
 
-const human: Human = {
-  name: 'Max',
-  age: 44,
+class Developer implements Human {
+  constructor(public name: string, public age: number, public experience: number){};
+
   greeting(message: string){
-    console.log(message);
+    console.log('hello');
   }
 }
 
-let tmpFunction: (message: string) => void;
+// const human: Human = {
+//   name: 'Max',
+//   age: 44,
+//   greeting(message: string){
+//     console.log(message);
+//   }
+// }
+
+// let tmpFunction: (message: string) => void;
