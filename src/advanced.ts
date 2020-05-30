@@ -104,3 +104,19 @@ const designer: Designer = {
 }
 
 designer.hoge = 'hoge';
+
+interface DownloadedData {
+  id: number;
+  user?: {
+    name?: {
+      first: string;
+      last: string
+    }
+  }
+}
+
+const downloadedData: DownloadedData = {
+  id: 1
+}
+// allow undefined
+console.log(downloadedData.user?.name?.first)
