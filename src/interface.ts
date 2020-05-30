@@ -1,4 +1,11 @@
-interface nameAble {
+type addFunc = (num1: number, num2: number) => number;
+// interface addFunc {
+//   (num1: number, num2: number): number;
+// }
+let addFunc: addFunc;
+addFunc = (n1: number, n2: number) => n1 + n2;
+
+type nameAble = {
   name: string;
 }
 
