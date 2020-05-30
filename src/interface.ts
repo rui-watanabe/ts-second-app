@@ -5,12 +5,18 @@ type addFunc = (num1: number, num2: number) => number;
 let addFunc: addFunc;
 addFunc = (n1: number, n2: number) => n1 + n2;
 
-type nameAble = {
-  name: string;
+interface NameAble {
+  name?: string;
+  nickName?: string;
+}
+
+const nameAble: NameAble = {
+  name: 'Max',
+  nickName: 'Ma'
 }
 
 // interface is only use object
-interface Human extends nameAble {
+interface Human extends NameAble {
   age: number;
   // greeting: (message: string) => void;
   // only use method
@@ -24,7 +30,8 @@ interface Human extends nameAble {
 // } | string
 
 class Developer implements Human {
-  constructor(public name: string, public age: number, public experience: number){};
+  constructor(public age: number, public experience: number, public name?: string){
+  };
 
   greeting(message: string){
     console.log(message);
