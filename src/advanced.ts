@@ -88,3 +88,15 @@ havePet(new Bird());
 // const input = document.getElementById('input') as HTMLInputElement;
 // input.value = 'initial input value';
 (document.getElementById('input') as HTMLInputElement).value = 'initial input value';
+
+interface Designer {
+  name: string;
+  // only use string (index can use all-type)
+  [index: string]: string;
+}
+
+const designer: Designer = {
+  name: 'Max',
+}
+
+designer.hoge = 'hoge';
