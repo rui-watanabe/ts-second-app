@@ -1,6 +1,6 @@
 // interface is only use object
 interface Human {
-  name: string;
+  readonly name: string;
   age: number;
   // greeting: (message: string) => void;
   // only use method
@@ -31,6 +31,7 @@ const tmpDeveloper = {
 }
 
 const user: Human = tmpDeveloper;
+
 
 // const human: Human = {
 //   name: 'Max',
