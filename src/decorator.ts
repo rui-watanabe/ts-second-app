@@ -4,17 +4,25 @@ function Logging (message: string) {
   return function (constructor: Function) {
     console.log(message);
     console.log(constructor);
+    console.log('Executed Logging decorator');
   } 
 }
 
 function Component (template: string, selector: string) {
   console.log('Executed Component decorator factory');
-  return function (constructor: { new(...args: any[]): { name: string } }) {
-    const mountedElement = document.querySelector(selector);
-    const instance = new constructor();
-    if(mountedElement){
-      mountedElement.innerHTML = template;
-      mountedElement.querySelector('h1')!.textContent = instance.name;
+  return function <T extends  { new(...args: any[]): { name: string } }>(constructor: T) {
+    return class extends constructor {
+      constructor(...args: any[]) {
+        super(...args);
+        console.log('Executed Component decorator');
+        const mountedElement = document.querySelector(selector);
+        const instance = new constructor();
+        if(mountedElement){
+          mountedElement.innerHTML = template;
+          mountedElement.querySelector('h1')!.textContent = instance.name;
+        }
+      }
+
     }
   }
 }
@@ -24,11 +32,11 @@ function Component (template: string, selector: string) {
 @Logging('Logging User')
 class User {
   name = 'max';
-  constructor(){
+  constructor(public age: number){
     console.log('User was created')
   }
 }
 
-const user1 = new User();
-const user2 = new User();
-const user3 = new User();
+const user1 = new User(44);
+const user2 = new User(43);
+const user3 = new User(54);
