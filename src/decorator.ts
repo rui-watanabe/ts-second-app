@@ -27,10 +27,17 @@ function Component (template: string, selector: string) {
   }
 }
 
+function PropertyLogging(target: any, propertyKey: string) {
+  console.log('Property Logging');
+  console.log(target)
+  console.log(propertyKey)
+}
+
 // component decorator factory > logging decorator factory > component decorator > logging decorator
 @Component('<h1>{{ name}}</h1>','#app')
 @Logging('Logging User')
 class User {
+  @PropertyLogging
   name = 'max';
   constructor(public age: number){
     console.log('User was created')
