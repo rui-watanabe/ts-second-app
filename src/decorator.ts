@@ -40,15 +40,31 @@ function MethodLogging(target: any, propertyKey: string, descriptor: PropertyDes
   console.log(descriptor);
 }
 
+function AccessorLogging(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+  console.log('Accessor Logging');
+  console.log(target);
+  console.log(propertyKey);
+  console.log(descriptor);
+}
+
 // component decorator factory > logging decorator factory > component decorator > logging decorator
 @Component('<h1>{{ name}}</h1>','#app')
 @Logging('Logging User')
 class User {
   @PropertyLogging
   name = 'max';
-  constructor(public age: number){
+  constructor(private _age: number){
     console.log('User was created')
   }
+
+  @AccessorLogging
+  get age() {
+    return this._age;
+  }
+  set age(value) {
+    this._age = value;
+  }
+
   @MethodLogging
   greeting(){
     console.log('Hello');
