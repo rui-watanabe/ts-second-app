@@ -56,6 +56,14 @@ function AccessorLogging(target: any, propertyKey: string, descriptor: PropertyD
   console.log(descriptor);
 }
 
+function ParameterLogging(target: any, propertyKey: string, parameterIndex: number) {
+  console.log('Parameter Logging');
+  console.log(target);
+  console.log(propertyKey);
+  console.log(parameterIndex);
+}
+
+
 // component decorator factory > logging decorator factory > component decorator > logging decorator
 @Component('<h1>{{ name}}</h1>','#app')
 @Logging('Logging User')
@@ -76,8 +84,8 @@ class User {
 
   @enumerable(false)
   @MethodLogging
-  greeting(){
-    console.log('Hello');
+  greeting(@ParameterLogging message: string){
+    console.log(message);
   }
 }
 
