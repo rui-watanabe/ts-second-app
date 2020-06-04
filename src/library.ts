@@ -1,6 +1,9 @@
 import axios from 'axios';
 axios.get('http://foo.com');
+// import _, { hello }from 'lodash';
+// type hi = hello;
 import _ from 'lodash';
+_.hello
 console.log(_.shuffle([1, 2, 3, 4]));
 namespace myApp {
   const hello = 'hello in namespace';
